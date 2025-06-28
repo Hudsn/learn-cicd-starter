@@ -31,3 +31,6 @@ jobs:
 
       - name: Build and push image
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/upheld-producer-464323-h7/notely-ar-repo/notely-app:latest .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/upheld-producer-464323-h7/notely-ar-repo/notely-app:latest --region us-central1 --allow-unauthenticated --project upheld-producer-464323-h7 --max-instances=4
